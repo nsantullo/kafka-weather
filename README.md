@@ -3,45 +3,22 @@
 For more information on using API Builder please see the [API Builder Getting Started Guide](https://docs.axway.com/bundle/API_Builder_4x_allOS_en/page/api_builder_getting_started_guide.html).
 
 #Kafka Setup
-You should run the entries until step 3 (using separate separate sessions)
+You should run the entries until step 4 (using separate separate sessions)
 https://kafka.apache.org/quickstart
 
-How to quickly run kafka-weather project in few steps.
-
-1. Kafka Setup
-https://kafka.apache.org/quickstart
-
-STEP 1: GET KAFKA
-
-Download the latest Kafka release and extract it:
-
-$ tar -xzf kafka_2.13-2.8.0.tgz
-$ cd kafka_2.13-2.8.0
-
-NOTE: Your local environment must have Java 8+ installed.
-
-Run the following commands in order to start all services in the correct order:
-
-# Start the ZooKeeper service
-# Note: Soon, ZooKeeper will no longer be required by Apache Kafka.
-$ bin/zookeeper-server-start.sh config/zookeeper.properties
-Open another terminal session and run:
-
-# Start the Kafka broker service
-$ bin/kafka-server-start.sh config/server.properties
-Once all services have successfully launched, you will have a basic Kafka environment running and ready to use.
-
-before you can write your first events, you must create a topic. Open another terminal session and run:
-
-$ bin/kafka-topics.sh --create --topic quickstart-events --bootstrap-server localhost:9092
-
-Run the console producer client to write a few events into your topic. By default, each line you enter will result in a separate event being written to the topic.
+The last step (number 4) is used to write some events into topic.
 
 $ bin/kafka-console-producer.sh --topic quickstart-events --bootstrap-server localhost:9092
 This is my first event
 This is my second event
 
-Go to the open wather website to get an api key and run myapikey=secret npm start from the respository that you have downloaded.
+The above entry should be used to get the weather. You can use it (after running the npm command as wrote below) in the following way:
+e.g. {"city":"Milan"}
+
+This Json will be used by kafka and the api builder project will return the weather of the city that you'd like to test!
+
+Go to the open wather website https://openweathermap.org to get an api key and run myapikey=secret npm start from the respository that you have downloaded.
+
 
 ## Running your service
 
