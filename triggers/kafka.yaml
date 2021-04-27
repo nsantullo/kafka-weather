@@ -1,0 +1,20 @@
+triggers:
+  kafka-1:
+    name: Kafka Consumer
+    parameters:
+      messageFormat: JSON
+      groupId: weather-group
+      topic: quickstart-events
+    enabled: true
+    invoke:
+      flow: NewFlow
+      parameters:
+        request: $.request
+    channel: kafka
+channels:
+  kafka:
+    enabled: true
+    name: Kafka Consumer
+    parameters:
+      brokers: 'localhost:9092'
+      clientId: api-builder
