@@ -14,9 +14,9 @@ $ bin/kafka-console-producer.sh --topic quickstart-events --bootstrap-server loc
 The above entry should be used to get the weather. You can use it (after running the npm command as wrote below) in the following way:
 e.g. {"city":"Milan"}
 
-This Json will be used by kafka and the api builder project will return the weather of the city that you'd like to test!
+This Json will be used by kafka and then the api builder project will return the weather of the city that you'd like to test!
 
-Go to the open wather website https://openweathermap.org to get an api key and run myapikey=secret npm start from the respository that you have downloaded.
+Go to the open wather website https://openweathermap.org to get an api key and run WEATHER_API_KEY=secret npm start from the respository that you have downloaded.
 
 
 ## Running your service
