@@ -9,8 +9,7 @@ https://kafka.apache.org/quickstart
 The last step (number 4) is used to write some events into topic.
 
 $ bin/kafka-console-producer.sh --topic quickstart-events --bootstrap-server localhost:9092
-This is my first event
-This is my second event
+
 
 The above entry should be used to get the weather. You can use it (after running the npm command as wrote below) in the following way:
 e.g. {"city":"Milan"}
