@@ -6,6 +6,42 @@ For more information on using API Builder please see the [API Builder Getting St
 You should run the entries until step 3 (using separate separate sessions)
 https://kafka.apache.org/quickstart
 
+How to quickly run kafka-weather project in few steps.
+
+1. Kafka Setup
+https://kafka.apache.org/quickstart
+
+STEP 1: GET KAFKA
+
+Download the latest Kafka release and extract it:
+
+$ tar -xzf kafka_2.13-2.8.0.tgz
+$ cd kafka_2.13-2.8.0
+
+NOTE: Your local environment must have Java 8+ installed.
+
+Run the following commands in order to start all services in the correct order:
+
+# Start the ZooKeeper service
+# Note: Soon, ZooKeeper will no longer be required by Apache Kafka.
+$ bin/zookeeper-server-start.sh config/zookeeper.properties
+Open another terminal session and run:
+
+# Start the Kafka broker service
+$ bin/kafka-server-start.sh config/server.properties
+Once all services have successfully launched, you will have a basic Kafka environment running and ready to use.
+
+before you can write your first events, you must create a topic. Open another terminal session and run:
+
+$ bin/kafka-topics.sh --create --topic quickstart-events --bootstrap-server localhost:9092
+
+Run the console producer client to write a few events into your topic. By default, each line you enter will result in a separate event being written to the topic.
+
+$ bin/kafka-console-producer.sh --topic quickstart-events --bootstrap-server localhost:9092
+This is my first event
+This is my second event
+
+Go to the open wather website to get an api key and run myapikey=secret npm start from the respository that you have downloaded.
 
 ## Running your service
 
