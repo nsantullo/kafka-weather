@@ -73,14 +73,6 @@ Using Windows:
 SET SECRETKEY=foobar && npm start
 ```
 
-## Invoking an API locally
-
-This makes a request against the custom run above:
-
-```bash
-curl -X GET -u <yourKey>: "http://127.0.0.1:8080/api/greet?username=user"
-```
-
 ## Logs
 The service streams its log messages to the console, this allows for easier integration with third-party log aggregation tools. For additional information on integrating API Builder logging with a third-party log aggregation tool, refer to [Log aggregation in API Builder](https://docs.axway.com/bundle/API_Builder_4x_allOS_en/page/export_api_builder_logs_into_a_data_store.html).
 
@@ -256,20 +248,7 @@ docker container stop <CONTAINER_NAME>
 
 # ... and started again with
 docker container start <CONTAINER_NAME>
-```
 
-#### How to access the service?
-
-First of all you need to check the IP Address that Docker is using to run your container:
-```docker inspect <CONTAINER_NAME> | grep '"IPAddress"' | head -n 1```
-
-Now check the value of your apikey property in `<SERVICE_FOLDER>/conf/default.js.`
-
-Using that apikey you could execute:
-
-```
-curl -X GET -u <API_KEY>: "http://<IP_ADDRESS>:<PORT>/api/greet?username=APIBuilder"
-```
 
 **Variable placeholders used in this section**
 
@@ -289,20 +268,6 @@ Using the image we can run a Docker container with:
 # Run the container exposing the port 8080 to your host so the service is accessible on that port
 docker run --name <CONTAINER_NAME> -p 8080:8080 -d <IMAGE_NAME>
 
-# Now access with
-curl -X GET -u <API_KEY>: "http://localhost:8080/api/greet?username=APIBuilder"
-```
-
-Alternatively with overriding the port we can do
-```
-# Note that if you provide another port with -e option you must map that provided port value to the desired port number of the host machine
-# The example bellow run the service within container on 8081 and map that port to 8082 of the host machine
-docker run --name <CONTAINER_NAME> -e PORT=8081 -p 8082:8081 -d <IMAGE_NAME>
-
-
-# Now access with
-curl -X GET -u <API_KEY>: "http://localhost:8082/api/greet?username=APIBuilder"
-```
 
 **Docker options explained**
 
